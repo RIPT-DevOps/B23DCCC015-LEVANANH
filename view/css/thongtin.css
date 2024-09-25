@@ -1,0 +1,113 @@
+.form-detail {
+  padding-top: 50px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.form-detail .control-custom {
+  font-size: 14px;
+  color: #868686;
+  width: 97%;
+}
+form{
+  height: 100vh;
+}
+.form-detail .group { 
+  position: relative;
+}
+
+.form-detail input {
+  display: block;
+  padding: 14px 0;
+  border: none;
+  border-bottom: 1px solid #d8d8d8;
+  margin-top: 26px;
+}
+
+.form-detail textarea {
+  display: block;
+  border: none;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.form-detail label {
+  font-size: 14px;
+  color: #868686;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 16px;
+ 
+}
+
+input:focus, 
+textarea:focus {
+  outline: none;
+}
+
+.form-detail .bar { 
+  position: relative; 
+  display: block; 
+  width: 97%; 
+}
+
+.bar::before,
+.bar::after {
+  content:'';
+  height: 2px; 
+  width: 0;
+  bottom: 1px; 
+  position: absolute;
+  background: #2cb680; 
+  transition: 0.2s ease all; 
+  -moz-transition: 0.2s ease all; 
+  -webkit-transition: 0.2s ease all;
+}
+
+.bar::before {
+  left:50%;
+}
+
+.bar::after {
+  right:50%; 
+}
+
+.form-detail input:focus ~ .bar::before,
+.form-detail input:focus ~ .bar::after,
+.form-detail textarea:focus ~ .bar::before,
+.form-detail textarea:focus ~ .bar::after {
+  width:50%;
+}
+.form-detail label {
+  font-size: 14px;
+  color: #868686;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 16px;
+  transition: 0.2s ease all; 
+  -moz-transition: 0.2s ease all; 
+  -webkit-transition: 0.2s ease all;
+}
+.form-detail input:focus ~ label, 
+.form-detail input:valid ~ label,
+.form-detail textarea:focus ~ label,
+.form-detail textarea:valid ~ label,
+.form-detail label {
+  top: -16px;
+  color: #2cb680;
+  z-index: 1;
+  position: absolute;
+}
+.form-button {
+  margin-top: 20px; 
+}
+button{
+  margin-top: 3em;
+  padding: 0.5em;
+  cursor: pointer;
+}
+button:hover{
+  background-color: #2cb680;
+}
+

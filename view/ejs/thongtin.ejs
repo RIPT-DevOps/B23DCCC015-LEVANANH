@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/thongtin.css">
+  <title>Thông Tin Cá Nhân</title>
+</head>
+<body>
+  <form action="/thongtin" method="post" class="form">
+    <div class="form-detail">
+      <div class="form-info col-md-6 col-xs-12">
+        <div class="group">      
+          <input class="control-custom" type="text"  value="<%= user.username %>" readonly />
+          <span class="bar"></span>
+          <label>Username</label>
+        </div>
+        <div class="group">      
+          <input class="control-custom" type="text" value="<%= user.ID %>" readonly/>
+          <span class="bar"></span>
+          <label>ID</label>
+        </div>
+        <div class="group">      
+          <input class="control-custom" type="text" value="<%= user.dateOfBirth %>"/>
+          <span class="bar"></span>
+          <label>Date Of Birth</label>
+        </div>
+        <div>
+          <button class="button" type="submit">Cập Nhật</button>
+        </div>
+      </div>
+    </div>
+</form>      
+
+  
+</body>
+</html>

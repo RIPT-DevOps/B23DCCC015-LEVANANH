@@ -1,0 +1,24 @@
+services:
+  express:
+    build:
+      context: .
+      dockerfile: dockerfile/
+    container_name: express
+    ports:
+      - "8000:8000"
+    volumes:
+      - my_data:/app/data
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/login
+    env_file:
+  mongo:
+    image: mongo:latest
+    container_name: mongo1
+    ports:
+      - "27017:27017"
+    volumes:
+      - my_data:/data/db
+volumes:
+  my_data:
+    
+

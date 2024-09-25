@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập</title>
+  
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+<body>
+  <div class="all">
+    <div class="container">
+      <div class="login">
+        <h2>Đăng Nhập</h2>
+        <p>Đăng nhập để sử dụng các tiện ích siêu việt của chúng tôi!</p>
+      </div>
+
+      <form action="/dangnhap" method="post">
+        <div class="input">
+          <input type="text" placeholder="Tên tài khoản" id="username" name="username">
+        </div>
+        <div class="input ">
+          <input type="password" placeholder="Mật khẩu" id="password" name="password">
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" id="mycheckbox"> 
+          <label for="mycheckbox">Lưu lại thông tin cho lần đăng nhập sau</label>
+        </div>
+        <div class="dangnhap">
+          <button id="loginBtn" type="submit">Đăng Nhập</button>
+        </div>
+      </form>
+      <div class="cuoitrang">
+        <a href="/dangki">Chưa có tài khoản?</a>
+        <a href="">Quên mật khẩu?</a>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

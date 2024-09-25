@@ -1,0 +1,97 @@
+header{
+    display: flex;
+    justify-content: space-evenly;
+    background-color:black;
+    color: aliceblue;
+    align-items: center;
+    position:fixed;
+    top:0;
+    width: 100%;
+    
+    
+}
+header img{
+    width: 100px;
+    height: 100px;
+}
+header input{
+    width: 20em;
+    height: 3em;
+    font-size: 1em;
+    font-weight: 600px;
+    border-radius: 0.5em;
+}
+header a{
+    color: aliceblue;
+}
+header nav ul li{
+    list-style: none;
+    float: left;
+    padding: 2em;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+}
+ul li a{
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+ul li a:hover{
+    color: blueviolet ;
+}
+ul li:hover ul.dropdown{
+    display: flex;
+    flex-direction: column;
+    background-color:#242524;
+    width: auto;
+    padding: 0 2em;
+    
+    
+    
+}
+ul li ul.dropdown li{
+    display: block;
+    padding: 1em ;
+    text-align: left;
+}
+ul li ul.dropdown{
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    display: none;
+}
+header button{
+    background-color:crimson;
+    width: 9em;
+    height: 5em;
+    cursor: pointer;
+    border-radius: 0.5em;
+    color: white;
+    font-weight: 500;
+}
+.search{
+    
+    width: 5em;
+    height: 3em;
+    background-color: aliceblue;
+    color: black;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+body{
+    background-color:whitesmoke;
+    padding-top: 7em;
+    
+}
+#userIcon , #cartIcon , #logoutIcon{
+    cursor: pointer;
+
+}
+#userIcon:hover, #cartIcon:hover , #logoutIcon:hover{
+    color: blueviolet;
+}

@@ -1,0 +1,45 @@
+<form class="checkout-f__payment"
+													action="https://www.sandbox.paypal.com/cgi-bin/webscr"
+													method="post">
+													<div class="u-s-m-b-10">
+
+														<!--====== Radio Box ======-->
+														<input type="hidden" name="business"
+															value="sb-obgdj15244080@business.example.com"> <input
+															type="hidden" name="cmd" value="_xclick">
+														<!--                                                                        <label>Name</label>
+                                                                        <span>${name}</span><br>
+                                                                        <label>Phone</label>
+                                                                        <span>${phone}</span><br>
+                                                                        <label>Address</label>
+                                                                        <span>${adr}</span><br>
+                                                                        
+                                                                        <label>Total</label>
+                                                                        <span>${sessionScope.tt}</span><br>-->
+
+														<input type="hidden" name="amount"
+															th:value="${session.tt}"> <input type="hidden"
+															name="currency_code" value="USD"> <input
+															type="hidden" name="return"
+															value="http://localhost:8080/">
+														<!--====== End - Radio Box ======-->
+
+														<!--====== End - Check Box ======-->
+
+													</div>
+													<div>
+
+														<button class="btn btn--e-brand-b-2" type="submit">CHECKOUT
+															BY PAYPAL</button>
+													</div>
+												</form>
+												<form class="checkout-f__payment" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+													<input type="hidden" name="business" value="sb-obgdj15244080@business.example.com">
+													<input type="hidden" name="cmd" value="_xclick">
+													<input type="hidden" name="amount" value="<%= totalPriceUSD %>">
+													<input type="hidden" name="currency_code" value="USD">
+													<input type="hidden" name="return" value="http://localhost:8000/">
+													
+													<button class="btn btn--e-brand-b-2" type="submit">CHECKOUT BY PAYPAL</button>
+												</form>
+												

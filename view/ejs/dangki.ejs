@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Kí</title>
+    <link rel="stylesheet" href="/css/dangki.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+<body>
+    <div class="all">
+      <div class="container">
+        <div class="login">
+          <h2>Đăng Kí</h2>
+        </div>
+        <form action="/create-user" method="post">
+          <div class="input">
+            <input type="text" id="username" placeholder="Tên tài khoản" name="username">
+          </div>
+          <div class="input">
+            <input type="date" id="date" placeholder="Ngày tháng năm sinh" name="date">
+          </div>
+        
+          <div class="input ">
+            <input type="password" id="password" placeholder="Mật khẩu" name="password">
+          </div>
+          <div class="input">
+            <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu" name="confirmPassword">
+          </div>
+          <div class="dangnhap">
+            <button id="registerBtn" type="submit">Tạo Tài khoản</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

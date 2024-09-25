@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/app.css" />
+    <title>WEB</title>
+    <script src="/controller/checkbox.js"></script>
+</head>
+
+<body>
+    <div>
+        <%- include('header') %>
+        <div class="container">
+            <main>
+                <div id="cottrai">
+                   
+                       <form action="/filter" method="get" id="accordion" type="submit">
+                        <div class="cap">
+                            <h2>Thương hiệu</h2>
+                            <% brands.forEach(function(brand) { %>
+                                <label><input type="checkbox" class="brand-checkbox" onchange="filterProducts()" value="<%= brand %>"><%= brand %></label>
+                            <% }) %>
+                        </div>
+                        <div class="cap">
+                            <h2>Giá bán</h2>
+                            <label><input type="checkbox" class="price-checkbox" value="1" onchange="filterProducts()">Dưới 1 triệu</label>
+                            <label><input type="checkbox" class="price-checkbox" value="2" onchange="filterProducts()">Từ 1 đến 2 triệu</label>
+                            <label><input type="checkbox" class="price-checkbox" value="3" onchange="filterProducts()">Từ 2 đến 3 triệu</label>
+                            <label><input type="checkbox" class="price-checkbox" value="4" onchange="filterProducts()">Trên 3 triệu</label>
+                        </div>
+                        
+                       </form>
+                    
+                </div>
+
+            </main>
+
+        </div>
+        
+        <div class="trangchu">
+            <% products.forEach(function(product) { %>
+                <a href="/product/<%= product._id %>" class="sanpham">
+                    <img src="/<%= product.image %>" alt="<%= product.name %>" class="hinhanh" >
+                    <h2 class="tenvot">
+                        <%= product.name %>
+                    </h2>
+                    <h3 class="much">Giá: <%= product.price %> VNĐ</h3>
+                </a>
+                <% }) %>
+        </div>
+    </div>
+    <div class="vien"></div>
+    <footer>
+        <div class="ketthuc">
+            <div class="thongtinchung">
+                <h2>Thông tin chung </h2>
+                <div class="con">
+                    <span class="indamdoimau">ANHLVBADMINTON:</span>
+                    <span>là hệ thống cửa hàng cầu lông với hơn 50 chi nhánh trên toàn quốc,
+                        cung cấp sỉ và lẻ các mặt hàng dụng cụ cầu lông từ phong trào tới chuyên nghiệp</span>
+                </div>
+                <div class="con">
+                    <span class="indamdoimau">Với sứ mệnh:</span>
+                    <span>"ANHLV cam kết mang đến những sản phẩm, dịch vụ chất lượng
+                        tốt nhất phục vụ cho người chơi thể thao để nâng cao sức khỏe của chính mình."</span>
+                </div>
+                <div class="con">
+                    <span class="indamdoimau">Tầm nhìn:</span>
+                    <span>"Trở thành nhà phân phối và sản xuất thể thao lớn nhất Việt Nam"</span>
+                </div>
+            </div>
+            <div class="lienhe">
+                <h2>Thông tin liên hệ</h2>
+                <span class="indam">Hệ thống cửa hàng:</span>
+                <span class="indamdoimau">1 shop onl toàn quốc</span>
+            </div>
+            <div class="chinhsach">
+                <h2>Chính sách</h2>
+                <ul>
+                    <li>Chính sách đổi trả,hoàn tiền</li>
+                    <li>Chính sách bảo hành</li>
+                    <li>Chính sách khiếu nại</li>
+                    <li>Chính sách vận chuyển</li>
+                    <li>Điều khoản sử dụng</li>
+                    <li>Chính sách bảo mật thông tin</li>
+                    <li>Chính sách nhượng quyền </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </footer>
+    </div>
+</body>
+</html>

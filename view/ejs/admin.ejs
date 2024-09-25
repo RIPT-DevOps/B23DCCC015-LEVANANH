@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Quản lý</title>
+    <link rel="stylesheet" href="/css/giohang.css">
+</head>
+<body>
+    <h2>Admin Panel</h2>
+    <div>
+        <div class="tab active" onclick="showTab('orders')">Duyệt đơn hàng</div>
+        <div class="tab" onclick="showTab('processedOrders')">Đơn hàng đã xử lý</div>
+        <div class="tab" onclick="showTab('products')">Quản lý sản phẩm</div>
+    </div>
+    
+    <div id="orders" class="tab-content active">
+        <h3>Đơn hàng chờ xác nhận</h3>
+        <form action="">
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Số điện thoại - Tên người mua</th>
+                        <th>Sản Phẩm</th>
+                        <th>Giá</th>
+                        <th>Số Lượng</th>
+                        <th>Phương thức thanh toán</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-body">
+                    <% let displayedForms = []; %>
+                    <% cartItems.forEach(item => { %>
+                        <% if (!displayedForms.includes(item.paymentId)) { %>
+                            <% displayedForms.push(item.paymentId); %>
+                            <tr data-item-id="<%= item.paymentId %>">
+                                <td><%= item.phone %> - <%= item.fullName %></td>
+                                <td><img src="<%= item.image %>" alt="<%= item.name %>" style="max-width: 100px; height: auto;"> <%= item.name %></td>
+                                <td><%= item.price %> VNĐ</td>
+                                <td><%= item.quantity %></td>
+                                <td><%= item.method %></td>
+                                <td>
+                                    <form action="/admin/updateStatus" method="post"  >
+                                        <input type="hidden" name="paymentId" value="<%= item.paymentId %>">
+                                        <select name="status" id="status-<%= item.paymentId %>" value="<%= item.status %>">
+                                            <option value="chưa xác nhận" <%= item.status === 'chưa xác nhận' ? 'selected' : '' %>>Chưa xác nhận</option>
+                                            <option value="xác nhận" <%= item.status === 'xác nhận' ? 'selected' : '' %>>Xác nhận</option>
+                                        </select>
+                                        <button type="submit">Cập nhật</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% } else { %>
+                            <tr data-item-id="<%= item.paymentId %>">
+                                <td><%= item.phone %> - <%= item.fullName %></td>
+                                <td><img src="<%= item.image %>" alt="<%= item.name %>" style="max-width: 100px; height: auto;"> <%= item.name %></td>
+                                <td><%= item.price %> VNĐ</td>
+                                <td><%= item.quantity %></td>
+                                
+                            </tr>
+                        <% } %>
+                    <% }); %>
+                </tbody>
+                
+            </table>
+        </form>
+    </div>
+    <div id="processedOrders" class="tab-content">
+        <h3>Đơn hàng đã xử lý</h3>
+        <table id="processed-orders-table">
+            <thead>
+                <tr>
+                    <th>Số điện thoại - Tên người mua</th>
+                    <th>Sản Phẩm</th>
+                    <th>Giá</th>
+                    <th>Số Lượng</th>
+                    <th>Phương thức thanh toán</th>
+                </tr>
+            </thead>
+            <tbody id="processed-orders-body">
+                <% processedOrders.forEach(order => { %>
+                    <% let isFirstItem = true; %>
+                    <% order.items.forEach((item, index) => { %>
+                        <tr data-item-id="<%= order.paymentId %>">
+                            <% if (isFirstItem) { %>
+                                <td rowspan="<%= order.items.length %>"><%= order.phone %> - <%= order.fullName %></td>
+                            <% } %>
+                            <td><img src="<%= item.image %>" alt="<%= item.name %>" style="max-width: 100px; height: auto;"> <%= item.name %></td>
+                            <td><%= item.price %> VNĐ</td>
+                            <td><%= item.quantity %></td>
+                            <% if (isFirstItem) { %>
+                                <td rowspan="<%= order.items.length %>"><%= order.method %></td>
+                                <% isFirstItem = false; %>
+                            <% } %>
+                        </tr>
+                    <% }); %>
+                <% }); %>
+                
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="products" class="tab-content">
+        <h3>Quản lý sản phẩm hiện đang bán</h3>
+        <table id="product-table">
+            <thead>
+                <tr>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Hình ảnh</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% products.forEach(product => { %>
+                    <tr data-product-id="<%= product._id %>">
+                        <td><%= product.name %></td>
+                        <td><%= product.price %> VNĐ</td>
+                        <td><img src="<%= product.image %>" alt="<%= product.name %>" style="max-width: 100px; height: auto;"></td>
+                        <td>
+                            <form id="updateProductForm-<%= product._id %>" action="/admin/product/<%= product._id %>?_method=PATCH" method="POST" style="display:none;">
+                                <label for="name-<%= product._id %>">Tên sản phẩm:</label>
+                                <input type="text" id="name-<%= product._id %>" name="name" >
+                                <br>
+                                <label for="price-<%= product._id %>">Giá sản phẩm:</label>
+                                <input type="number" id="price-<%= product._id %>" name="price" >
+                                <br>
+                                <label for="image-<%= product._id %>">Chọn hình ảnh:</label>
+                                <input type="file" id="image-<%= product._id %>" name="image" accept="image/*" >
+                                <br>
+                                <label for="thuonghieu-<%= product._id %>">Thương hiệu:</label>
+                                <input type="text" id="thuonghieu-<%= product._id %>" name="thuonghieu" >
+                                <br>
+                                <label for="category-<%= product._id %>">Danh mục:</label>
+                                <input type="text" id="category-<%= product._id %>" name="category" >
+                                <br>
+                                <button type="submit">Lưu thay đổi</button>
+                            </form>
+                            
+                            <form action="/admin/product/<%= product._id %>?_method=DELETE" method="POST">
+                                <button type="submit">Xóa</button>
+                            </form>
+                            <button type="button" onclick="showUpdateForm('<%= product._id %>')">Cập nhật</button>
+                        </td>
+                    </tr>
+
+                <% }); %>
+            </tbody>
+        </table>
+        <button id="showAddProductFormButton">Thêm sản phẩm mới</button>
+        <div id="addProductFormContainer" style="display:none;">
+            <h3>Thêm sản phẩm mới</h3>
+            <form id="addProductForm" action="/admin/product" method="POST" enctype="multipart/form-data">
+                <label for="newProductName">Tên sản phẩm:</label>
+                <input type="text" id="newProductName" name="name" required>
+                <br>
+                <label for="newProductPrice">Giá sản phẩm:</label>
+                <input type="number" id="newProductPrice" name="price" required>
+                <br>
+                <label for="newProductImage">Chọn hình ảnh:</label>
+                <input type="file" id="newProductImage" name="image" accept="image/*" required>
+                <br>
+                <label for="newProductBrand">Thương hiệu:</label>
+                <input type="text" id="newProductBrand" name="thuonghieu" required>
+                <br>
+                <label for="newProductCategory">Danh mục:</label>
+                <input type="text" id="newProductCategory" name="category" required>
+                <br>
+                <button type="submit">Thêm sản phẩm</button>
+            </form>
+        </div>
+    
+    </div>
+
+
+</body>
+</html>
+<script src="/controller/admin.js"></script>

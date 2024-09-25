@@ -1,0 +1,34 @@
+<script src="/controller/checkcookie.js"></script>
+<script src="/controller/giohang.js"></script>
+<link rel="stylesheet" href="/css/header.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<header>
+    <img src="/img/BADMINTON.jpg" alt="badminton">
+    <form action="/search" method="GET">
+        <div class="search-box">
+            <input type="text" id="search-input" name="keyword" placeholder="Tìm kiếm...">
+            <button type="submit" class="search">Tìm kiếm</button>
+        </div>
+    </form>
+    
+    
+    <nav>
+        <ul>
+            <li><a href="/" id="homelink">Trang Chủ</a></li>
+            <li>
+                <a href="https://www.facebook.com/levananh1106/" target="_blank">Liên hệ</a>
+
+            </li>
+            <li>
+                <a href="https://bwfbadminton.com/" target="_blank">Tin tức</a>
+
+            </li>
+        </ul>
+    </nav>
+    <a href="/thongtin"><span ><i class="fa-solid fa-user" style="display: none;" id="userIcon"></i></span></a>
+    <a href="/giohang"><span><i class="fa-solid fa-cart-shopping" style="display: none;" id="cartIcon"></i></span></a>
+    <a href="/dangxuat"><span><i class="fa-solid fa-right-from-bracket" style="display: none;" id="logoutIcon"></i></span></a>
+    <form action="/dangnhap" method="get">
+        <button class="login" id="loginBtn" type="submit">Đăng Nhập</button>
+    </form>
+</header>

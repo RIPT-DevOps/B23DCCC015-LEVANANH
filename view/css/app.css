@@ -1,0 +1,102 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+body{
+    background-color:whitesmoke;
+    padding-top: 7em;
+    
+}
+.trangchu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-grow: 1;
+    
+}
+
+.hinhanh{
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.hinhanh:hover{
+    transform: scale(0.9);
+}
+.sanpham{
+    text-align: center; border: 2px solid darkcyan;
+    width:30%;
+    margin: 1em;
+    display: grid;
+    flex-direction: column;
+    height: auto;
+
+
+}
+.much ,.tenvot{
+    text-align: center;
+    align-items: center;
+    background-color: orange;
+   
+}
+.tenvot{
+    text-decoration: underline solid  red;
+}
+#accordion{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: lightseagreen;
+}
+.cap label{
+     display: block;
+     
+}
+.cap h2{
+    text-align: center;
+}
+#accordion>.cap  { 
+    background: lightseagreen; padding: 8px 10px;
+    font-weight: bold; text-transform: uppercase; 
+    cursor: pointer; color: white;font-size: 18px;
+}
+#accordion > .ct > label {
+    margin: 8px 0 8px 30px;
+    font-size: 18px; 
+    display: block; 
+    cursor: pointer; 
+}
+#accordion > .ct input { width: 16px; height: 16px; margin-right: 10px;}
+.vien{
+    border-top: 10em solid whitesmoke;
+    margin-top:2em;
+    
+}
+footer{
+    background: #242524;
+    color:white;
+    margin-top: auto;
+}
+.ketthuc{
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    
+}
+.thongtinchung,.lienhe,.chinhsach{
+    flex: 1;
+    width: 30%;
+    margin: 0 3em;
+   
+}
+.ketthuc h2{
+    text-align: center;
+}
+.indamdoimau{
+    color: orange;
+}
+.indam{
+    font-weight: 700;
+}

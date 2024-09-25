@@ -1,0 +1,17 @@
+h1 , h2,h3 {
+    text-align: center;
+}
+button{
+    border-radius: 0.5em;
+    padding: 1em;
+}
+button:hover{
+    background-color: crimson;
+    cursor: pointer;
+}
+.all{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

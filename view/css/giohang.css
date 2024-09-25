@@ -1,0 +1,105 @@
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Setting basic styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+#cart-body {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 3em;
+}
+
+button:hover {
+    background-color: #c82333;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+    img {
+        max-width: 80px;
+    }
+}
+#buy{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+/*
+*/
+.tab {
+    cursor: pointer;
+    padding: 10px 20px;
+    display: inline-block;
+    margin: 0 5px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 0 0;
+}
+.tab.active {
+    background-color: #fff;
+    border-bottom: none;
+}
+.tab-content {
+    display: none;
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 20px;
+    background-color: #fff;
+}
+.tab-content.active {
+    display: block;
+}
+#showAddProductFormButton{
+    float : right
+}

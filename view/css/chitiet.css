@@ -1,0 +1,116 @@
+.all{
+    display: flex;
+    margin-top: 3em;
+}
+.img{
+    flex-grow: 2;
+    max-width: 20em;
+    
+}
+.img img {
+    box-shadow: 0.5em 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.1);
+}
+img{
+    height: 20em;
+    
+}
+.container{
+    flex-grow:8;
+    padding-left: 5em;
+    display: flex;
+    
+}
+.mota , .free{
+    flex-grow:1
+}
+.mota > * , h3 , .free > *{
+    margin-bottom: 1em;
+}
+h1{
+    text-decoration: underline;
+}
+.doimau , .price{
+    color: orange;
+    text-decoration: underline;
+}
+.mota > ul > li , .free > p {
+    font-size: 1.5em;
+}
+.fa-check{
+    color: chartreuse;
+}
+.free {
+    border-radius: 0.5em ;
+    border : 0.2em solid #f1a78e
+}
+.fa-gift{
+    color: red;
+}
+.mua{
+    margin-top: 6em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+#mua{
+    padding: 1.5em;
+    border-radius: 0.5em;
+    border:0.1em solid black;
+    background-color: #dc143c;
+    font-size: 1em;
+    color: whitesmoke;
+    cursor: pointer;
+}
+#mua:hover{
+    background-color: chartreuse;
+    color: black;
+}
+/* ------------------------------- cart -------------------*/
+.cart{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding-top: 5em ;
+}
+.cart h2{
+    margin-bottom: 2em;
+}
+.cart table{
+    width: 100%;
+}
+.cart table thead tr th:first-child {
+    text-align: left;
+}
+.cart table tr td{
+    border-bottom: 0.2em solid #ddd;
+    padding : 1em 0 
+}
+.cart{
+    position: fixed;
+    height: 100vh;
+    width: 25em;
+    left:0;
+    left:-100%;
+    top:0;
+    background-color: #f1a78e;
+    overflow-y: scroll;
+    transition: all 0.3s ease;
+}
+.icon{
+    text-align: right;
+    padding-right: 1em;
+    cursor: pointer;
+}
+.fa-x:hover{
+    color: #dc143c;
+}
+#buy{
+    padding: 1em;
+    border-radius: 0.5em;
+}
+#buy:hover{
+    cursor: pointer;
+    background-color: #dc143c;
+   
+}
